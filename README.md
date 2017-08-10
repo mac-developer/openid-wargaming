@@ -70,7 +70,7 @@ It would be interesting if you send the login sucessfully on this step. It usual
 ## Installation
 
 ```
-python setup.py
+pip install .
 ```
 
 ## Usage
