@@ -44,10 +44,10 @@ You'll have got on secure way the identity of the user on this step. Fields:
 
 Wargaming uses this kind of identity/claimed_id:
 
-``https://eu.wargaming.net/id/<account_id>-<nickname>/'``
+``https://eu.wargaming.net/id/account_id-nickname/``
 
-<account_id>: It is a numeric identifier.
-<nickname>: It is the player nickname used in the game.
+* account_id: It is a numeric identifier.
+* nickname: It is the player nickname used in the game.
 
 After getting this information, you'll have to parse it to extract the player_id and player_nickname data.
 
