@@ -1,4 +1,4 @@
-# WargamingOpenID - The Wargaming OpenID 2.0 implementation
+# openid-wargaming - The Wargaming OpenID 2.0 implementation
 
 WargamingOpenID is a Python library for implementing the unified login system of Wargaming Games (World of Tanks, World of Warplanes, World of Warships) on your web/mobile apps and on secure way based on [OpenID 2.0](https://en.wikipedia.org/wiki/OpenID).
 
