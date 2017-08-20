@@ -99,9 +99,3 @@ class Authentication:
         evidence.update({'request_id': self.request_id})
         evidence.update({'timestamp': datetime.now(timezone.utc)})
         return evidence
-
-
-if __name__ == '__main__':
-    auth = Authentication()
-    # Example with Wargaming. Use this URL to authenticate yourself.
-    print(auth.authenticate('https://eu.wargaming.net/id/openid/'))

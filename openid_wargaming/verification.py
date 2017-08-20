@@ -104,15 +104,15 @@ class Verification:
 
         for parameter, value in query_parameters.items():
             if parameter in assertion_parameters:
-                if value[0] == assertion_parameters[parameter][0]:
-                    return True
-                else:
+                if value[0] != assertion_parameters[parameter][0]:
                     reason = 'parameter %s has not the same value' % parameter
                     raise OpenIDFailReturnURLVerification(reason)
 
             else:
                 reason = 'parameter %s is not present' % parameter
                 raise OpenIDFailReturnURLVerification(reason)
+
+        return True
 
     def verify_discovered_information(self):
         """OpenID Verifying Discovered Information **NOT IMPLEMENTED**
@@ -200,8 +200,8 @@ class Verification:
         ns:http://specs.openid.net/auth/2.0
         """
         cleaned = response.strip().split('\n')
-        return {fields.split(':')[0]:
-                self.convert_type(''.join(fields.split(':')[1:]))
+        return {fields.split(':')[0].strip():
+                self.convert_type(''.join(fields.split(':')[1:]).strip())
                 for fields in cleaned}
 
     def convert_type(self, value):
@@ -240,9 +240,3 @@ class Verification:
     def op_endopint(self):
         query = parse_qs(self.assertion.query)
         return query['openid.op_endpoint'][0]
-
-
-if __name__ == '__main__':
-    sample_url = '<empty>'
-    verify = Verification(sample_url)
-    print(verify.verify())
