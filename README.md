@@ -9,6 +9,10 @@ I mean, if you'll go on having your own user database (profile, avatar, ...) but
 
 Obviously, it makes sense that your web or app is related to Wargaming World or their games ;).
 
+## Requirements
+
+* Python>=3.6
+
 ## Overview
 This OpenID implementation consists on three steps:
 
@@ -114,6 +118,30 @@ some_redirect_to_successfully_url()
 
 ## Examples
 
+File example.py contains a full example of the Wargaming OpenID redirections using a SimpleHTTPServer using Python3.
+You'll have to open or click on the link printed on your screen.
+
+```
+##################
+# Open this url: #
+------------------
+https://eu.wargaming.net/id/signin/?next=/id/openid/770470869069588087/&trust_root=http%3A//localhost%3A8000/
+------------------
+
+...
+```
+
+
+The program will output the Wargaming nickname just logged in on your Internet Browser.
+
+```
+...
+
+### Wargaming nickname authenticated: <nickname>
+```
+
+You'll be able to execute when you install the package.
+
 ## TODO
 * Unit Tests
 * More examples
@@ -123,5 +151,4 @@ some_redirect_to_successfully_url()
 * [Wargaming](http://wargaming.net)
 * [OpenID 2.0 Standard](https://openid.net/specs/openid-authentication-2_0.html)
 * [Python Requests Library](http://docs.python-requests.org/en/master/)
-* [Inspect HTTP Requests](https://requestb.in/)
 * [HTTP Request and Response Service](https://httpbin.org/)

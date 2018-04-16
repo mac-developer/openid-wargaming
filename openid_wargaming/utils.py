@@ -1,8 +1,9 @@
 """Some general utilities"""
-from requests import post
+from uuid import uuid4
+from requests import get
 
 
-REQUESTBIN='https://requestb.in/api/v1/bins'
+HTTPBIN='https://httpbin.org/get'
 
 
 def create_return_to(request_id):
@@ -11,12 +12,10 @@ def create_return_to(request_id):
     This function prevents you from create a website for testing.
     It allows you to develop quickly.
 
-    Reference: requestb.in
-    Alternatives: httpbin.org
+    Reference: httpbin.org
     """
-    r = post(REQUESTBIN, {"private": "false"})
-    bin = r.json()['name']
-    url = 'https://requestb.in/%s?request_id=%s' % (bin, request_id)
+    r = get(HTTPBIN, {"uuid": uuid4().hex})
+    url = r.json()['url']
     return url
 
 

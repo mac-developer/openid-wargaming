@@ -37,15 +37,15 @@ class Authentication:
     def __init__(self, mode=None, ns=None, identity=None,
                  claimed_id=None, return_to=None, request_id=None):
 
-        self.mode = 'checkid_setup' or mode
-        self.ns = 'http://specs.openid.net/auth/2.0' or ns
-        self.identity = 'http://specs.openid.net/auth/2.0/' \
-                        'identifier_select' or identity
-        self.claimed_id = 'http://specs.openid.net/auth/2.0/' \
-                          'identifier_select' or claimed_id
+        self.mode = mode or 'checkid_setup'
+        self.ns = ns or 'http://specs.openid.net/auth/2.0'
+        self.identity = identity or 'http://specs.openid.net/auth/2.0/' \
+                                    'identifier_select'
+        self.claimed_id = claimed_id or 'http://specs.openid.net/auth/2.0/' \
+                                        'identifier_select'
 
         self.request_id = request_id or uuid4().hex
-        self.return_to = create_return_to(self.request_id) or return_to
+        self.return_to = return_to or create_return_to(self.request_id)
 
     def authenticate(self, where, request_id=None):
         """Process to authenticate a request based on few data
